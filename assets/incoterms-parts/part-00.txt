@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incoterms® 2020 — Enfoque Freight Forwarder | Martiline</title>
+<style>
+:root{--orange:#F26522;--bg:#0f1117;--bg2:#1a1d27;--bg3:#22263a;--card:#1e2235;--border:#2e3350;
+  --text:#e8eaf0;--muted:#7a82a0;--green:#2ecc71;--blue:#3498db;--red:#e74c3c;--yellow:#f1c40f;}
+.light{--bg:#f4f5f9;--bg2:#eaecf4;--bg3:#dde0ef;--card:#fff;--border:#c8cce0;--text:#1a1d27;--muted:#5a6080;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;
+  transition:background .3s,color .3s;}
+header{background:var(--bg2);border-bottom:2px solid var(--orange);padding:12px 24px;display:flex;
+  align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-mark{background:var(--orange);border-radius:8px;padding:8px 14px;font-weight:900;color:#fff;
+  font-size:15px;letter-spacing:1px;flex-shrink:0;}
+.logo-text{font-size:15px;font-weight:700;}
+.logo-sub{font-size:10px;color:var(--muted);margin-top:1px;}
+.hdr-right{display:flex;align-items:center;gap:8px;}
+.btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:6px;
+  cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;}
+.btn:hover{background:var(--orange);color:#fff;border-color:var(--orange);}
+.btn-lang{min-width:48px;text-align:center;}
+.btn-lang.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+.btn:focus-visible{outline:2px solid var(--orange);outline-offset:2px;}
+.tab-bar{display:flex;background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;overflow-x:auto;}
+.tab{padding:11px 18px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;
+  border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+.main{padding:20px 24px;max-width:1400px;margin:0 auto;}
+.panel{display:none;}
+.panel.active{display:block;}
+.search-row{display:flex;gap:10px;margin-bottom:14px;align-items:center;flex-wrap:wrap;}
+.search-input{flex:1;min-width:220px;padding:10px 14px;background:var(--card);border:1px solid var(--border);
+  border-radius:8px;color:var(--text);font-size:13px;font-family:inherit;outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:var(--orange);}
+footer{text-align:center;padding:16px 24px;border-top:1px solid var(--border);margin-top:10px;}
+footer span{font-size:9px;color:var(--muted);letter-spacing:.3px;line-height:1.8;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-mark">MARTILINE</div>
+    <div>
+      <div class="logo-text">Incoterms® 2020</div>
+      <div class="logo-sub" id="hdr-sub">Enfoque Freight Forwarder · Santiago · Lima</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <button class="btn btn-lang active" id="btn-es" type="button" onclick="setLang('es')">ES</button>
+    <button class="btn btn-lang" id="btn-en" type="button" onclick="setLang('en')">EN</button>
+    <button class="btn" id="theme-btn" type="button" onclick="toggleTheme()">☀ Modo Claro</button>
+  </div>
+</header>
+
+<div class="tab-bar" id="tab-bar"></div>
+<div class="main"></div>
+
+<footer><span id="footer-text"></span></footer>
+
+<script>
+var lang = "es", isDark = true, tabIds = [];
+var T = {
+  es:{sub:"Enfoque Freight Forwarder · Santiago · Lima", themeLight:"☀ Modo Claro", themeDark:"🌙 Modo Oscuro",
+      footer:"Contenido normativo Incoterms® © ICC — Cámara de Comercio Internacional 2020 · Herramienta interna Martiline SpA"},
+  en:{sub:"Freight Forwarder view · Santiago · Lima", themeLight:"☀ Light Mode", themeDark:"🌙 Dark Mode",
