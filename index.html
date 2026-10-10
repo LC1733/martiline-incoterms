@@ -237,7 +237,7 @@ footer span{font-size:10px;}
   border-radius:8px;padding:9px 12px;color:var(--text);}
 .ff-split b{color:var(--yellow);}
 .ff-link{margin-left:auto;background:var(--bg3);border:1px solid var(--border);color:var(--muted);border-radius:8px;
-  font:700 11px inherit;padding:6px 10px;cursor:pointer;white-space:nowrap;}
+  font:700 11px/1.35 'Segoe UI',system-ui,sans-serif;padding:6px 10px;cursor:pointer;white-space:nowrap;}
 .ff-link:hover{color:var(--orange);border-color:var(--orange);}
 .ff-head .ff-tags{align-items:center;}
 /* raíl vertical (móvil) */
@@ -289,7 +289,7 @@ footer span{font-size:10px;}
 .cmp{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
 .cmp-sel{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
 .cmp select{padding:9px 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);color:var(--text);
-  font:700 16px inherit;min-height:44px;min-width:150px;}
+  font:700 16px/1.35 'Segoe UI',system-ui,sans-serif;min-height:44px;min-width:150px;}
 .cmp-vs{font-weight:900;color:var(--muted);font-size:13px;}
 .cmp-swap{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:8px;min-width:44px;min-height:44px;cursor:pointer;font-size:16px;}
 .cmp-pre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
@@ -334,6 +334,68 @@ mark.ffm{background:rgba(242,101,34,.28);color:inherit;border-radius:3px;padding
   .ff-hint{display:block;}
   .ff-hero{padding:18px;}
   .ff-hero p{font-size:13px;}
+}
+/* asistente */
+.wz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.wz-step{margin-bottom:14px;}
+.wz-q{font-size:13.5px;font-weight:800;margin-bottom:8px;display:flex;gap:8px;align-items:baseline;}
+.wz-q i{font-style:normal;color:var(--orange);font:900 12px monospace;}
+.wz-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;}
+.wz-opt{text-align:left;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:11px 13px;
+  font:600 13px/1.35 'Segoe UI',system-ui,sans-serif;cursor:pointer;line-height:1.4;min-height:44px;}
+.wz-opt small{display:block;color:var(--muted);font-weight:500;font-size:11.5px;margin-top:3px;}
+.wz-opt:hover{border-color:var(--orange);}
+.wz-opt.on{border-color:var(--orange);background:rgba(242,101,34,.12);}
+.wz-res{border:1px solid var(--orange);border-radius:12px;padding:16px;background:linear-gradient(150deg,rgba(242,101,34,.10),transparent 70%);}
+.wz-res .code{font:900 34px monospace;letter-spacing:-1.5px;line-height:1;}
+.wz-res .nm{font-size:14px;font-weight:700;margin:4px 0 10px;}
+.wz-res p{font-size:13px;line-height:1.6;margin-bottom:8px;}
+.wz-res .warn{font-size:12.5px;color:var(--text);background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.3);border-radius:8px;padding:8px 11px;margin-bottom:8px;}
+.wz-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.wz-reset{background:none;border:0;color:var(--muted);font:600 12px/1.35 'Segoe UI',system-ui,sans-serif;cursor:pointer;text-decoration:underline;padding:6px 0;}
+/* tabla de costos */
+.cst-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--card);}
+table.cst{border-collapse:separate;border-spacing:0;width:100%;min-width:860px;font-size:12px;table-layout:fixed;}
+table.cst col.lab{width:230px;}
+table.cst th,table.cst td{padding:9px 6px;border-bottom:1px solid var(--border);text-align:center;}
+table.cst thead th{background:var(--bg3);font:900 12.5px monospace;position:sticky;top:0;}
+table.cst th.lab,table.cst td.lab{text-align:left;font:600 12px/1.35 'Segoe UI',system-ui,sans-serif;color:var(--text);position:sticky;left:0;background:var(--card);z-index:1;padding-left:12px;}
+table.cst thead th.lab{background:var(--bg3);font:800 10px/1.35 'Segoe UI',system-ui,sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);z-index:2;}
+table.cst tr:last-child td{border-bottom:0;}
+.cv,.cc,.cx{display:inline-block;min-width:26px;padding:3px 0;border-radius:6px;font:900 11px monospace;}
+.cv{background:rgba(46,204,113,.18);color:var(--green);}
+.cc{background:rgba(52,152,219,.18);color:var(--blue);}
+.cx{color:var(--muted);}
+.cv sup,.cc sup{font-size:9px;margin-left:1px;}
+.cst-notes{font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:10px;padding-left:18px;}
+.cst-notes li{margin-bottom:3px;}
+/* ficha imprimible */
+.ff-print{margin-left:0;}
+.pr-head{display:none;}
+@media print{
+  @page{margin:12mm;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body.print-one header,body.print-one .tab-bar,body.print-one footer,body.print-one .ff-hero,body.print-one .ff-jump,
+  body.print-one .ff-sec:not(#sec-cards),body.print-one #sec-cards>h3,body.print-one #sec-cards>.sub,body.print-one .search-row,
+  body.print-one .ff-toolbar,body.print-one .ff-card:not(.printing),body.print-one .ff-link,body.print-one .ff-toggle,body.print-one .ff-toast{display:none!important;}
+  body.print-one{background:#fff;--bg:#fff;--bg2:#f4f5f9;--bg3:#f1f3f8;--card:#fff;--border:#d5d9e6;--text:#1a1d27;--muted:#4a5070;color:#1a1d27;}
+  body.print-one::before{display:none;}
+  body.print-one .main{padding:0;max-width:none;}
+  body.print-one .ff-card.printing{display:block;border:1px solid #ccc;box-shadow:none;break-inside:auto;}
+  body.print-one .ff-card.printing .ff-body{display:grid!important;grid-template-columns:1fr 1fr;}
+  body.print-one .ff-rail{display:none!important;}
+  body.print-one .ff-vrail{display:block!important;}
+  body.print-one .pr-head{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #F26522;padding:0 0 8px;margin-bottom:12px;font:700 12px 'Segoe UI',sans-serif;}
+  body.print-one .pr-head b{background:#F26522;color:#fff;padding:5px 10px;border-radius:6px;letter-spacing:1px;}
+  body.print-one .pr-foot{display:block!important;font-size:9.5px;color:#555;margin-top:10px;line-height:1.5;}
+}
+.pr-foot{display:none;}
+@media(max-width:700px){
+  .wz{padding:14px 12px;}
+  .wz-opts{grid-template-columns:1fr;}
+  table.cst{min-width:700px;}
+  table.cst col.lab{width:128px;}
+  table.cst th.lab,table.cst td.lab{min-width:0;font-size:11.5px;padding-left:8px;white-space:normal;}
 }
 @media(prefers-reduced-motion:reduce){.ff-toggle span.arw{transition:none;}.ff-card.flash{animation:none;}.ff-toast{transition:none;}}
 </style>
@@ -620,7 +682,55 @@ var LFF = {
    swap:"Intercambiar A y B",
    cmpNote:"Comparación orientativa basada en las reglas Incoterms® 2020. Prevalecen el texto oficial de la ICC y lo pactado en el contrato de compraventa.",
    cardsT:"Fichas por Incoterm", cardsS:"Cada ficha muestra el punto exacto de traspaso y qué nos corresponde hacer como Freight Forwarder. Usa 🔗 para enviar una ficha a un cliente.",
-   hint:"Desliza la tabla hacia el lado →"},
+   hint:"Desliza la tabla hacia el lado →",
+   pdf:"PDF", pdfT:"Imprimir o guardar esta ficha como PDF", prSub:"Ficha para el cliente",
+   prFoot:"Ficha referencial preparada por Martiline SpA. Los puntos de traspaso siguen las reglas Incoterms® 2020 de la Cámara de Comercio Internacional; ante cualquier diferencia prevalecen el texto oficial de la ICC y lo pactado en el contrato de compraventa. No constituye asesoría legal ni aduanera.",
+   jWz:"🧭 Asistente", jCst:"💲 Costos",
+   wzT:"¿Qué Incoterm conviene?",
+   wzS:"Responde 3 o 4 preguntas sobre la operación y te mostramos la regla que mejor calza. El Incoterm lo pactan vendedor y comprador: esto es una orientación para conversarlo con el cliente.",
+   wq1:"¿Qué tipo de carga y transporte?", wm1:"Contenedor, aérea, terrestre o multimodal", wm1s:"La mayoría de las operaciones",
+   wm2:"Granel o carga proyecto por mar, sin contenedor", wm2s:"Se entrega al costado o a bordo del buque",
+   wq2:"¿Quién contrata y paga el transporte principal?", ww1:"El comprador", ww1s:"Carga nominada desde destino",
+   ww2:"El vendedor", ww2s:"Flete prepagado desde origen",
+   wq3b:"¿Dónde entrega el vendedor?", wd1:"En su bodega, sin cargar ni despachar exportación", wd1s:"Mínima obligación del vendedor",
+   wd2:"Cargada en el vehículo del comprador o en un terminal, con exportación despachada", wd2s:"Lo habitual en contenedor y aéreo",
+   wd3:"Al costado del buque en el puerto de embarque", wd3s:"Granel o proyecto", wd4:"A bordo del buque en el puerto de embarque", wd4s:"Granel o proyecto",
+   wq3s:"¿Hasta dónde se compromete el vendedor?", wr1:"Paga el flete hasta destino, pero el riesgo pasa en origen", wr1s:"Reglas C",
+   wr2:"Entrega en destino, sin descargar", wr2s:"El comprador descarga e importa", wr3:"Entrega en destino, descargada", wr3s:"Único caso en que el vendedor descarga",
+   wr4:"Entrega en destino con la importación pagada", wr4s:"El vendedor actúa como importador",
+   wq4:"¿El vendedor contrata el seguro de la carga?", wi1:"Sí", wi1s:"El seguro pasa a ser obligación del contrato", wi2:"No", wi2s:"Cada parte decide su propio seguro",
+   wRes:"Regla sugerida", wSee:"Ver ficha", wCmp:"Comparar con", wReset:"Empezar de nuevo",
+   wNote:"Orientación basada en las reglas Incoterms® 2020. La regla final la acuerdan vendedor y comprador en el contrato de compraventa.",
+   why:{EXW:"El comprador hace todo desde la bodega del vendedor, incluida la carga y la exportación.",
+        FCA:"El vendedor entrega cargada (en su local) o en el lugar designado, con la exportación despachada, y el comprador contrata el flete. Es la regla natural para contenedores y carga aérea.",
+        FAS:"El vendedor deja la carga al costado del buque, despachada de exportación; el comprador asume la carga a bordo y el flete.",
+        FOB:"El vendedor entrega a bordo del buque, despachada de exportación; el comprador contrata y paga el flete marítimo.",
+        CFR:"El vendedor paga el flete hasta el puerto de destino, pero el riesgo pasa al comprador al quedar la carga a bordo en origen.",
+        CIF:"Como CFR, más un seguro que el vendedor debe contratar a favor del comprador, con cobertura mínima (ICC C).",
+        CPT:"El vendedor paga el transporte hasta el lugar de destino, pero el riesgo pasa al comprador al entregar al primer porteador.",
+        CIP:"Como CPT, más un seguro que el vendedor debe contratar con cobertura amplia (ICC A).",
+        DAP:"El vendedor lleva la carga hasta el lugar convenido y la deja lista para descargar; descarga e importación son del comprador.",
+        DPU:"El vendedor lleva la carga hasta el lugar convenido y además la descarga. Es el único Incoterm con descarga a cargo del vendedor.",
+        DDP:"El vendedor entrega en destino con la importación despachada y los tributos pagados."},
+   warn:{EXW:"Si el comprador no puede actuar como exportador en el país de origen, FCA en el local del vendedor suele ser más seguro.",
+         FOB:"Si la carga va en contenedor, se entrega en el terminal y no a bordo: en ese caso corresponde FCA.",
+         FAS:"No es apto para contenedores.",
+         CFR:"Si la carga va en contenedor, corresponde CPT.",
+         CIF:"Si la carga va en contenedor, corresponde CIP. La cobertura mínima no cubre daños comunes de manipulación.",
+         CPT:"Sin seguro contratado por alguna de las partes, una pérdida en tránsito la soporta el comprador.",
+         DDP:"Un vendedor extranjero sin identificación tributaria local normalmente no puede importar; sin representación, DDP suele ser inviable."},
+   cstT:"Quién paga cada costo",
+   cstS:"Reparto típico de los principales conceptos entre vendedor (V) y comprador (C) en cada regla. Sirve para revisar una cotización antes de enviarla.",
+   kHead:"Concepto", vS:"V", cS:"C", noOb:"No obligatorio para ninguna parte",
+   k1:"Embalaje y marcado", k2:"Carga en el local del vendedor", k3:"Transporte interno en origen", k4:"Despacho de exportación",
+   k5:"Carga a bordo / entrega al porteador principal", k6:"Flete principal", k7:"Seguro de la carga", k8:"Descarga en destino",
+   k9:"Transporte hasta el lugar final de destino", k10:"Despacho de importación, derechos e impuestos",
+   kNotes:["<b>1</b> En FCA, si la entrega es en el local del vendedor, el transporte interno lo contrata el comprador.",
+     "<b>2</b> Obligatorio para el vendedor: CIF con cobertura mínima (ICC C) y CIP con cobertura amplia (ICC A), por al menos el 110 % del valor del contrato. En las demás reglas cada parte decide.",
+     "<b>3</b> Del comprador, salvo que el contrato de transporte del vendedor incluya la descarga: en ese caso la paga el vendedor.",
+     "<b>4</b> En CPT y CIP el vendedor paga hasta el lugar de destino convenido; si ese lugar es el final, cubre este tramo.",
+     "Los gastos de terminal (THC) se reparten según las condiciones del contrato de transporte y la práctica de cada puerto: conviene dejarlo por escrito en la cotización.",
+     "Reparto general según las reglas Incoterms® 2020 (artículos A9/B9). Prevalecen el texto oficial de la ICC y lo pactado en el contrato."]},
  en:{tab:"⚓ Forwarder View", eyebrow:"Operating premise",
    h2a:"We do not set the Incoterm. ", h2b:"We interpret it.",
    lead:"The Incoterm is agreed between seller and buyer in the sales contract. Our work starts after that: reading the rule to know what to quote, what to coordinate at origin and destination, which documents to demand, which costs to validate and what to warn the customer about before booking. Each card gives the exact point where risk changes hands — not a percentage — and what we have to do.",
@@ -669,7 +779,55 @@ var LFF = {
    swap:"Swap A and B",
    cmpNote:"Indicative comparison based on the Incoterms® 2020 rules. The official ICC text and the sales contract prevail.",
    cardsT:"Cards by Incoterm", cardsS:"Each card shows the exact transfer point and what we must do as Freight Forwarder. Use 🔗 to send a single card to a customer.",
-   hint:"Swipe the table sideways →"}
+   hint:"Swipe the table sideways →",
+   pdf:"PDF", pdfT:"Print or save this card as PDF", prSub:"Customer sheet",
+   prFoot:"Reference sheet prepared by Martiline SpA. Transfer points follow the Incoterms® 2020 rules of the International Chamber of Commerce; in case of any discrepancy the official ICC text and the sales contract prevail. Not legal or customs advice.",
+   jWz:"🧭 Wizard", jCst:"💲 Costs",
+   wzT:"Which Incoterm fits?",
+   wzS:"Answer 3 or 4 questions about the shipment and we show the rule that fits best. Seller and buyer agree the Incoterm: this is guidance to discuss with the customer.",
+   wq1:"What kind of cargo and transport?", wm1:"Container, air, road or multimodal", wm1s:"Most shipments",
+   wm2:"Bulk or project cargo by sea, not containerised", wm2s:"Delivered alongside or on board the vessel",
+   wq2:"Who contracts and pays the main carriage?", ww1:"The buyer", ww1s:"Cargo nominated from destination",
+   ww2:"The seller", ww2s:"Freight prepaid from origin",
+   wq3b:"Where does the seller deliver?", wd1:"At its premises, not loaded and not export-cleared", wd1s:"Minimum seller obligation",
+   wd2:"Loaded on the buyer's vehicle or at a terminal, export-cleared", wd2s:"Usual for container and air",
+   wd3:"Alongside the vessel at the port of shipment", wd3s:"Bulk or project", wd4:"On board the vessel at the port of shipment", wd4s:"Bulk or project",
+   wq3s:"How far does the seller commit?", wr1:"Pays freight to destination, but risk passes at origin", wr1s:"C rules",
+   wr2:"Delivers at destination, not unloaded", wr2s:"Buyer unloads and imports", wr3:"Delivers at destination, unloaded", wr3s:"Only case where the seller unloads",
+   wr4:"Delivers at destination with import duties paid", wr4s:"Seller acts as importer",
+   wq4:"Does the seller buy cargo insurance?", wi1:"Yes", wi1s:"Insurance becomes a contract obligation", wi2:"No", wi2s:"Each party decides its own cover",
+   wRes:"Suggested rule", wSee:"Open card", wCmp:"Compare with", wReset:"Start over",
+   wNote:"Guidance based on the Incoterms® 2020 rules. The final rule is agreed by seller and buyer in the sales contract.",
+   why:{EXW:"The buyer does everything from the seller's premises, including loading and export clearance.",
+        FCA:"The seller delivers loaded (at its premises) or at the named place, export-cleared, and the buyer contracts the freight. The natural rule for containers and air cargo.",
+        FAS:"The seller places the cargo alongside the vessel, export-cleared; the buyer handles loading on board and the freight.",
+        FOB:"The seller delivers on board the vessel, export-cleared; the buyer contracts and pays the ocean freight.",
+        CFR:"The seller pays freight to the port of destination, but risk passes to the buyer once the cargo is on board at origin.",
+        CIF:"As CFR, plus insurance the seller must buy for the buyer, with minimum cover (ICC C).",
+        CPT:"The seller pays carriage to the place of destination, but risk passes to the buyer on handing over to the first carrier.",
+        CIP:"As CPT, plus insurance the seller must buy with extensive cover (ICC A).",
+        DAP:"The seller takes the cargo to the agreed place, ready for unloading; unloading and import belong to the buyer.",
+        DPU:"The seller takes the cargo to the agreed place and also unloads it. The only Incoterm where the seller unloads.",
+        DDP:"The seller delivers at destination with import clearance done and duties paid."},
+   warn:{EXW:"If the buyer cannot act as exporter in the country of origin, FCA at the seller's premises is usually safer.",
+         FOB:"Containerised cargo is handed over at the terminal, not on board: FCA is the right rule.",
+         FAS:"Not suitable for containers.",
+         CFR:"For containerised cargo, CPT is the right rule.",
+         CIF:"For containerised cargo, CIP is the right rule. Minimum cover does not protect against common handling damage.",
+         CPT:"Without insurance bought by either party, a loss in transit falls on the buyer.",
+         DDP:"A foreign seller without a local tax ID normally cannot import; without representation DDP is often unworkable."},
+   cstT:"Who pays each cost",
+   cstS:"Typical split of the main cost items between seller (S) and buyer (B) under each rule. Useful to check a quotation before sending it.",
+   kHead:"Item", vS:"S", cS:"B", noOb:"Not mandatory for either party",
+   k1:"Packing and marking", k2:"Loading at the seller's premises", k3:"Pre-carriage at origin", k4:"Export clearance",
+   k5:"Loading on board / handover to main carrier", k6:"Main carriage", k7:"Cargo insurance", k8:"Unloading at destination",
+   k9:"Carriage to the final place of destination", k10:"Import clearance, duties and taxes",
+   kNotes:["<b>1</b> Under FCA, if delivery is at the seller's premises, the buyer contracts the pre-carriage.",
+     "<b>2</b> Mandatory for the seller: CIF with minimum cover (ICC C) and CIP with extensive cover (ICC A), for at least 110% of the contract value. Under the other rules each party decides.",
+     "<b>3</b> Buyer's, unless the seller's contract of carriage includes unloading, in which case the seller pays it.",
+     "<b>4</b> Under CPT and CIP the seller pays up to the agreed place of destination; if that is the final place, it covers this leg.",
+     "Terminal handling charges (THC) are split according to the contract of carriage and each port's practice: put it in writing in the quotation.",
+     "General split under the Incoterms® 2020 rules (articles A9/B9). The official ICC text and the contract prevail."]}
 };
 
 function T2(){ return LFF[(typeof lang!=="undefined" && LFF[lang]) ? lang : "es"]; }
@@ -689,7 +847,9 @@ panel.innerHTML =
  '</div>'+
  '<div class="ff-jump" id="ff-jump"></div>'+
  '<div class="ff-sec" id="sec-ov"><h3 id="ff-ovT"></h3><p class="sub" id="ff-ovS"></p><div class="ov" id="ff-ov"></div></div>'+
+ '<div class="ff-sec" id="sec-wz"><h3 id="ff-wzT"></h3><p class="sub" id="ff-wzS"></p><div class="wz" id="ff-wz"></div></div>'+
  '<div class="ff-sec" id="sec-cmp"><h3 id="ff-cmpT"></h3><p class="sub" id="ff-cmpS"></p><div class="cmp" id="ff-cmp"></div></div>'+
+ '<div class="ff-sec" id="sec-cst"><h3 id="ff-cstT"></h3><p class="sub" id="ff-cstS"></p><p class="ff-hint" id="ff-hint2"></p><div class="cst-wrap" id="ff-cst"></div><ul class="cst-notes" id="ff-cstN"></ul></div>'+
  '<div class="ff-sec" id="sec-cards"><h3 id="ff-cardsT"></h3><p class="sub" id="ff-cardsS"></p>'+
  '<div class="search-row"><input class="search-input" type="search" id="ff-q" placeholder="🔍" autocomplete="off"><span class="ff-count" id="ff-count" aria-live="polite"></span></div>'+
  '<div class="ff-toolbar" id="ff-filters"></div>'+
@@ -815,6 +975,98 @@ function renderCmp(){
     '<p class="cmp-note">'+t.cmpNote+'</p>';
 }
 
+/* ── asistente «¿qué Incoterm conviene?» ── */
+var wz = {};
+function wzResult(){
+  if(!wz.mode || !wz.who) return null;
+  var bulk = wz.mode==="bulk";
+  if(wz.who==="buyer"){
+    if(!wz.dlv) return null;
+    return {exw:"EXW", fca:"FCA", fas:"FAS", fob:"FOB"}[wz.dlv];
+  }
+  if(!wz.reach) return null;
+  if(wz.reach==="dap") return "DAP";
+  if(wz.reach==="dpu") return "DPU";
+  if(wz.reach==="ddp") return "DDP";
+  if(!wz.ins) return null;
+  return wz.ins==="yes" ? (bulk?"CIF":"CIP") : (bulk?"CFR":"CPT");
+}
+function wzOpt(key,val,label,small){
+  return '<button class="wz-opt'+(wz[key]===val?" on":"")+'" type="button" data-k="'+key+'" data-v="'+val+'">'+label+(small?'<small>'+small+'</small>':'')+'</button>';
+}
+function wzStep(n,q,opts){ return '<div class="wz-step"><div class="wz-q"><i>'+n+'</i>'+q+'</div><div class="wz-opts">'+opts+'</div></div>'; }
+function renderWz(){
+  var t = T2(), h = "", n = 1;
+  h += wzStep(n++, t.wq1, wzOpt("mode","multi",t.wm1,t.wm1s)+wzOpt("mode","bulk",t.wm2,t.wm2s));
+  if(wz.mode) h += wzStep(n++, t.wq2, wzOpt("who","buyer",t.ww1,t.ww1s)+wzOpt("who","seller",t.ww2,t.ww2s));
+  if(wz.mode && wz.who==="buyer"){
+    var o = wzOpt("dlv","exw",t.wd1,t.wd1s)+wzOpt("dlv","fca",t.wd2,t.wd2s);
+    if(wz.mode==="bulk") o += wzOpt("dlv","fas",t.wd3,t.wd3s)+wzOpt("dlv","fob",t.wd4,t.wd4s);
+    h += wzStep(n++, t.wq3b, o);
+  }
+  if(wz.mode && wz.who==="seller"){
+    h += wzStep(n++, t.wq3s, wzOpt("reach","port",t.wr1,t.wr1s)+wzOpt("reach","dap",t.wr2,t.wr2s)+wzOpt("reach","dpu",t.wr3,t.wr3s)+wzOpt("reach","ddp",t.wr4,t.wr4s));
+    if(wz.reach==="port") h += wzStep(n++, t.wq4, wzOpt("ins","yes",t.wi1,t.wi1s)+wzOpt("ins","no",t.wi2,t.wi2s));
+  }
+  var r = wzResult();
+  if(r){
+    var d = byCode(r), why = t.why[r], warn = t.warn[r];
+    var alt = {FOB:"FCA",FAS:"FCA",CIF:"CIP",CFR:"CPT",CPT:"CFR",CIP:"CIF",DAP:"DPU",DPU:"DAP",DDP:"DAP",EXW:"FCA",FCA:"FOB"}[r];
+    h += '<div class="wz-res"><div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">'+t.wRes+'</div>'+
+      '<div class="code" style="color:'+ACC[r]+'">'+r+'</div><div class="nm">'+(lang==="en"?d.en:d.es)+'</div>'+
+      '<p>'+why+'</p>'+(warn?'<div class="warn">⚠ '+warn+'</div>':'')+
+      '<div class="wz-act"><button class="ff-chip on" type="button" data-wgo="'+r+'">'+t.wSee+' '+r+'</button>'+
+      '<button class="ff-chip" type="button" data-wcmp="'+r+'|'+alt+'">'+t.wCmp+' '+alt+'</button></div>'+
+      '<p class="cmp-note" style="margin-top:10px">'+t.wNote+'</p></div>';
+  }
+  if(wz.mode) h += '<button class="wz-reset" type="button" data-wreset="1">↺ '+t.wReset+'</button>';
+  document.getElementById("ff-wz").innerHTML = h;
+}
+
+/* ── reparto típico de costos por concepto (Incoterms® 2020, artículos A9/B9) ── */
+var CODES = ["EXW","FCA","FAS","FOB","CFR","CIF","CPT","CIP","DAP","DPU","DDP"];
+function costRows(){
+  var t = T2();
+  // V = vendedor, C = comprador, x = no obligatorio; número = nota
+  return [
+    [t.k1, "V V V V V V V V V V V"],
+    [t.k2, "C V V V V V V V V V V", ],
+    [t.k3, "C V1 V V V V V V V V V"],
+    [t.k4, "C V V V V V V V V V V"],
+    [t.k5, "C C C V V V V V V V V"],
+    [t.k6, "C C C C V V V V V V V"],
+    [t.k7, "x x x x x V2 x V2 x x x"],
+    [t.k8, "C C C C C3 C3 C3 C3 C3 V C3"],
+    [t.k9, "C C C C C C V4 V4 V V V"],
+    [t.k10,"C C C C C C C C C C V"]
+  ];
+}
+function renderCst(){
+  var t = T2(), cols = CODES;
+  var h = '<table class="cst"><colgroup><col class="lab">'+cols.map(function(){return '<col>';}).join("")+'</colgroup><thead><tr><th class="lab">'+t.kHead+'</th>'+cols.map(function(c){return '<th style="color:'+ACC[c]+'">'+c+'</th>';}).join("")+'</tr></thead><tbody>';
+  costRows().forEach(function(r){
+    var cells = r[1].split(" ");
+    h += '<tr><td class="lab">'+r[0]+'</td>'+cells.map(function(v){
+      var who = v.charAt(0), note = v.slice(1);
+      if(who==="x") return '<td><span class="cx" title="'+t.noOb+'">—</span></td>';
+      return '<td><span class="'+(who==="V"?"cv":"cc")+'" title="'+(who==="V"?t.seller:t.buyer)+'">'+(who==="V"?t.vS:t.cS)+(note?'<sup>'+note+'</sup>':'')+'</span></td>';
+    }).join("")+'</tr>';
+  });
+  document.getElementById("ff-cst").innerHTML = h+'</tbody></table>';
+  document.getElementById("ff-cstN").innerHTML = t.kNotes.map(function(n){return '<li>'+n+'</li>';}).join("");
+}
+
+/* ── imprimir una sola ficha (Guardar como PDF) ── */
+function printCard(code){
+  var el = document.getElementById("inc-"+code); if(!el) return;
+  var wasOpen = el.classList.contains("open");
+  el.classList.add("printing","open"); document.body.classList.add("print-one");
+  var t0 = document.title; document.title = "Martiline_Incoterms_"+code;
+  var done = function(){ el.classList.remove("printing"); if(!wasOpen) el.classList.remove("open"); document.body.classList.remove("print-one"); document.title = t0; window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  setTimeout(function(){ window.print(); setTimeout(done, 400); }, 50);
+}
+
 /* ── ir a una ficha (desde vista general, comparador o enlace #CODIGO) ── */
 function goTo(code, fromHash){
   if(!byCode(code)) return;
@@ -849,6 +1101,7 @@ function card(d){
   var accent = (typeof inco!=="undefined" && inco.filter(function(x){return x.code===d.code;})[0]) ?
                inco.filter(function(x){return x.code===d.code;})[0].accent : "var(--orange)";
   return '<div class="ff-card" id="inc-'+d.code+'" data-code="'+d.code+'" data-fam="'+d.fam+'" data-nom="'+d.nom+'" style="border-left-color:'+accent+'">'+
+   '<div class="pr-head"><b>MARTILINE</b><span>Incoterms® 2020 · '+t.prSub+'</span></div>'+
    '<div class="ff-head">'+
      '<div class="ff-code" style="color:'+accent+'">'+d.code+'</div>'+
      '<div class="ff-names"><h3>'+d.es+'</h3><span>'+d.en+'</span></div>'+
@@ -856,6 +1109,7 @@ function card(d){
        '<span class="ff-tag '+(d.fam==="sea"?"sea":"any")+'">'+(d.fam==="sea"?t.sea:t.any)+'</span>'+
        '<span class="ff-tag nom">'+(d.nom==="c"?t.nomc:t.nomv)+'</span>'+
        '<button class="ff-link" type="button" data-link="'+d.code+'" title="'+t.linkT+'">🔗 '+t.link+'</button>'+
+       '<button class="ff-link ff-print" type="button" data-print="'+d.code+'" title="'+t.pdfT+'">🖨 '+t.pdf+'</button>'+
      '</div>'+
    '</div>'+
    '<div class="ff-points">'+
@@ -874,7 +1128,7 @@ function card(d){
      '<div class="ff-blk"><h5><i>7</i>'+t.b7+'</h5><p>'+f.scope+'</p></div>'+
      '<div class="ff-blk"><h5><i>8</i>'+t.b8+'</h5><ul>'+li(f.costs)+'</ul></div>'+
      '<div class="ff-blk alert"><h5><i>9</i>'+t.b9+'</h5><ul>'+li(f.alert)+'</ul></div>'+
-   '</div></div>';
+   '</div><div class="pr-foot">'+t.prFoot+'</div></div>';
 }
 
 function strip(s){ return (s||"").toString().normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
@@ -934,7 +1188,7 @@ function paintFF(){
     ? "Search: unloading, customs, insurance, demurrage…"
     : "Buscar: descarga, aduana, seguro, sobrestadía…");
   paintChips();
-  document.getElementById("ff-jump").innerHTML = [["sec-ov",t.jOv],["sec-cmp",t.jCmp],["sec-cards",t.jCards],["sec-mat",t.jMat],["sec-imo",t.jImo]].map(function(x){
+  document.getElementById("ff-jump").innerHTML = [["sec-ov",t.jOv],["sec-wz",t.jWz],["sec-cmp",t.jCmp],["sec-cst",t.jCst],["sec-cards",t.jCards],["sec-mat",t.jMat],["sec-imo",t.jImo]].map(function(x){
     return '<button class="ff-chip" type="button" data-jump="'+x[0]+'">'+x[1]+'</button>';
   }).join("");
   document.getElementById("ff-ovT").textContent = t.ovT;
@@ -945,6 +1199,13 @@ function paintFF(){
       '<span><i style="background:var(--red)"></i>'+t.xR+'</span><span><i style="background:var(--yellow)"></i>'+t.xC+'</span>'+
       '<span><i style="background:repeating-linear-gradient(135deg,var(--blue) 0 3px,rgba(52,152,219,.25) 3px 6px);border-radius:2px;width:14px"></i>'+t.gapL+'</span>'+
     '</div><p class="ov-cap">'+t.ovCap+'</p>';
+  document.getElementById("ff-wzT").textContent = t.wzT;
+  document.getElementById("ff-wzS").textContent = t.wzS;
+  renderWz();
+  document.getElementById("ff-cstT").textContent = t.cstT;
+  document.getElementById("ff-cstS").textContent = t.cstS;
+  document.getElementById("ff-hint2").textContent = t.hint;
+  renderCst();
   document.getElementById("ff-cmpT").textContent = t.cmpT;
   document.getElementById("ff-cmpS").textContent = t.cmpS;
   renderCmp();
@@ -982,7 +1243,8 @@ document.getElementById("ff-filters").addEventListener("click", function(e){
   renderFF();
 });
 document.getElementById("ff-list").addEventListener("click", function(e){
-  var l = e.target.closest(".ff-link"); if(l){ copyLink(l.dataset.link); return; }
+  var pr = e.target.closest("[data-print]"); if(pr){ printCard(pr.dataset.print); return; }
+  var l = e.target.closest("[data-link]"); if(l){ copyLink(l.dataset.link); return; }
   var b = e.target.closest(".ff-toggle"); if(!b) return;
   b.parentNode.classList.toggle("open");
 });
@@ -992,6 +1254,19 @@ document.getElementById("ff-ov").addEventListener("click", function(e){
 document.getElementById("ff-jump").addEventListener("click", function(e){
   var j = e.target.closest("[data-jump]"); if(!j) return;
   var s = document.getElementById(j.dataset.jump); if(s) s.scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("ff-wz").addEventListener("click", function(e){
+  var o = e.target.closest(".wz-opt");
+  if(o){
+    var k = o.dataset.k, order = ["mode","who","dlv","reach","ins"];
+    wz[k] = o.dataset.v;
+    for(var i=order.indexOf(k)+1;i<order.length;i++) delete wz[order[i]];
+    renderWz(); return;
+  }
+  if(e.target.closest("[data-wreset]")){ wz = {}; renderWz(); return; }
+  var g = e.target.closest("[data-wgo]"); if(g){ goTo(g.dataset.wgo); return; }
+  var c = e.target.closest("[data-wcmp]");
+  if(c){ var p = c.dataset.wcmp.split("|"); cmpA=p[0]; cmpB=p[1]; renderCmp(); document.getElementById("sec-cmp").scrollIntoView({behavior:"smooth",block:"start"}); }
 });
 var cmpBox = document.getElementById("ff-cmp");
 cmpBox.addEventListener("change", function(e){
