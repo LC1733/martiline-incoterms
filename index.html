@@ -212,11 +212,130 @@ table.ff-mat td.k{font-family:monospace;font-weight:900;font-size:14px;color:var
 .ff-note strong{color:var(--text);}
 .ff-xfer{display:flex;align-items:flex-start;gap:6px;margin-top:10px;font-size:9.5px;line-height:1.45;color:var(--muted);}
 .ff-xfer b{color:var(--orange);font-size:9px;letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:2px;}
+/* ══════════ v2 (2026-10): raíl legible, vista general, comparador ══════════ */
+.ff-card,.ff-sec{scroll-margin-top:84px;}
+.ff-eyebrow,.ff-pt u{font-size:10px;}
+.ff-tag{font-size:10px;}
+table.ff-mat th{font-size:10px;}
+footer span{font-size:10px;}
+.ff-card.flash{animation:ffFlash 1.6s ease-out 1;}
+@keyframes ffFlash{0%{box-shadow:0 0 0 3px var(--orange);}100%{box-shadow:0 0 0 0 transparent;}}
+.ff-legend{font-size:11px;}
+.ff-rail table{min-width:980px;}
+.ff-rail th{font-size:10px;line-height:1.35;padding:0 3px 10px;}
+.ff-rail th.hr{color:var(--red);font-weight:800;}
+.ff-rail th.hc{color:var(--yellow);font-weight:800;}
+.ff-rail th.hr.hc{color:var(--orange);}
+.ff-rail th.ha{color:var(--text);font-style:italic;}
+.ff-pin::after{display:none;}
+.ff-pin.r{background:var(--red);box-shadow:0 0 0 3px rgba(231,76,60,.25);}
+.ff-pin.c{background:var(--yellow);box-shadow:0 0 0 3px rgba(241,196,15,.22);}
+.ff-pin.alt{background:var(--card);border:3px dashed var(--red);box-shadow:none;}
+.ff-seg.gap,.ov-b.gap,.vr-bar.gap{background:repeating-linear-gradient(135deg,var(--blue) 0 4px,rgba(52,152,219,.25) 4px 8px);}
+.ff-lbl{font-size:10px;}
+.ff-split{margin-top:12px;font-size:12px;line-height:1.55;background:rgba(241,196,15,.08);border:1px solid rgba(241,196,15,.32);
+  border-radius:8px;padding:9px 12px;color:var(--text);}
+.ff-split b{color:var(--yellow);}
+.ff-link{margin-left:auto;background:var(--bg3);border:1px solid var(--border);color:var(--muted);border-radius:8px;
+  font:700 11px inherit;padding:6px 10px;cursor:pointer;white-space:nowrap;}
+.ff-link:hover{color:var(--orange);border-color:var(--orange);}
+.ff-head .ff-tags{align-items:center;}
+/* raíl vertical (móvil) */
+.ff-vrail{display:none;}
+.vr-head,.vr-row{display:grid;grid-template-columns:44px 44px minmax(0,1fr);column-gap:6px;}
+.vr-head{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;text-align:center;}
+.vr-head span:last-child{text-align:left;}
+.vr-cell{position:relative;display:flex;justify-content:center;}
+.vr-bar{width:8px;height:100%;background:var(--blue);}
+.vr-bar.s{background:var(--green);}
+.vr-row:first-of-type .vr-bar{border-radius:4px 4px 0 0;}
+.vr-row:last-child .vr-bar{border-radius:0 0 4px 4px;}
+.vr-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:17px;height:17px;border-radius:50%;
+  border:3px solid var(--card);z-index:1;}
+.vr-dot.r{background:var(--red);}
+.vr-dot.c{background:var(--yellow);}
+.vr-dot.a{background:var(--card);border:3px dashed var(--red);}
+.vr-name{font-size:13px;line-height:1.35;padding:8px 0;display:grid;grid-template-columns:22px minmax(0,1fr);align-items:center;}
+.vr-t{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;}
+.vr-row.tr .vr-name{font-weight:700;}
+.vr-n{color:var(--muted);font:700 11px monospace;min-width:16px;}
+.vr-chip{font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;}
+.vr-chip.r{background:rgba(231,76,60,.15);color:var(--red);}
+.vr-chip.c{background:rgba(241,196,15,.15);color:var(--yellow);}
+.vr-chip.a{border:1px dashed var(--red);color:var(--red);}
+/* navegación interna */
+.ff-jump{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 18px;}
+/* vista general */
+.ov{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.ov-grid{display:grid;grid-template-columns:64px repeat(12,minmax(0,1fr));align-items:center;}
+.ov-h{font-size:10px;color:var(--muted);text-align:center;padding:0 2px 8px;line-height:1.25;align-self:end;}
+.ov-h .n{display:none;font:700 10.5px monospace;}
+.ov-code{font:900 14px monospace;padding:4px 0;background:none;border:0;text-align:left;cursor:pointer;color:var(--text);}
+.ov-code:hover{text-decoration:underline;}
+.ov-cell{position:relative;height:30px;cursor:pointer;}
+.ov-b{position:absolute;left:1px;right:1px;height:5px;border-radius:3px;background:var(--blue);}
+.ov-b.s{background:var(--green);}
+.ov-b.r{top:8px;}
+.ov-b.c{top:18px;}
+.ov-dot{position:absolute;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;border:2px solid var(--card);z-index:1;}
+.ov-dot.r{top:4.5px;background:var(--red);}
+.ov-dot.c{top:14.5px;background:var(--yellow);}
+.ov-dot.a{top:4.5px;background:var(--card);border:2px dashed var(--red);}
+.ov-sep{grid-column:1/-1;height:1px;background:var(--border);margin:2px 0;}
+.ov-cap{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.ov-key{display:none;margin-top:10px;font-size:11.5px;color:var(--muted);columns:2;column-gap:14px;padding-left:22px;}
+.ov-key li{margin-bottom:2px;}
+/* comparador */
+.cmp{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.cmp-sel{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+.cmp select{padding:9px 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);color:var(--text);
+  font:700 16px inherit;min-height:44px;min-width:150px;}
+.cmp-vs{font-weight:900;color:var(--muted);font-size:13px;}
+.cmp-swap{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:8px;min-width:44px;min-height:44px;cursor:pointer;font-size:16px;}
+.cmp-pre{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.cmp-rows{margin-top:14px;border-top:1px solid var(--border);}
+.cmp-row{display:grid;grid-template-columns:minmax(150px,220px) 1fr 1fr;gap:12px;padding:10px 4px;border-bottom:1px solid var(--border);font-size:12.5px;line-height:1.55;}
+.cmp-row.hd{font:900 15px monospace;padding:8px 4px;}
+.cmp-k{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
+.cmp-row.diff{background:rgba(242,101,34,.06);}
+.cmp-row.diff .cmp-k::after{content:" ≠";color:var(--orange);}
+.cmp-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.55;}
+/* buscador */
+.ff-count{font-size:12px;color:var(--muted);white-space:nowrap;}
+mark.ffm{background:rgba(242,101,34,.28);color:inherit;border-radius:3px;padding:0 1px;}
+.ff-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);
+  font-size:13px;font-weight:700;padding:10px 16px;border-radius:10px;opacity:0;transition:all .25s;z-index:500;pointer-events:none;}
+.ff-toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+.ff-hint{display:none;font-size:11px;color:var(--muted);margin:-6px 0 8px;}
 @media(max-width:700px){
   .ff-code{font-size:24px;min-width:60px;}
   .ff-points,.ff-body{grid-template-columns:1fr;}
+  .ff-rail{display:none;}
+  .ff-vrail{display:block;}
+  .ff-railbox{padding:2px 16px 16px;}
+  .ff-head{padding:16px 16px 10px;gap:10px;}
+  .ff-points{padding:0 16px 12px;}
+  .ff-pt p{font-size:13px;}
+  .ff-blk p,.ff-blk li{font-size:12.5px;}
+  .ff-toolbar,.ff-jump,.cmp-pre{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-right:-16px;padding-right:16px;}
+  .ff-toolbar::-webkit-scrollbar,.ff-jump::-webkit-scrollbar,.cmp-pre::-webkit-scrollbar{display:none;}
+  .ff-chip{flex:0 0 auto;white-space:nowrap;min-height:40px;font-size:12px;}
+  .search-input{font-size:16px;min-height:44px;}
+  .main{padding:16px;}
+  .ov,.cmp{padding:14px 12px;}
+  .ov-grid{grid-template-columns:46px repeat(12,minmax(0,1fr));}
+  .ov-h .t{display:none;} .ov-h .n{display:inline;}
+  .ov-key{display:block;}
+  .ov-code{font-size:12.5px;}
+  .cmp-row{grid-template-columns:1fr 1fr;}
+  .cmp-row .cmp-k{grid-column:1/-1;}
+  .cmp-row.hd .cmp-k{display:none;}
+  .cmp select{flex:1;min-width:0;}
+  .ff-hint{display:block;}
+  .ff-hero{padding:18px;}
+  .ff-hero p{font-size:13px;}
 }
-@media(prefers-reduced-motion:reduce){.ff-toggle span.arw{transition:none;}}
+@media(prefers-reduced-motion:reduce){.ff-toggle span.arw{transition:none;}.ff-card.flash{animation:none;}.ff-toast{transition:none;}}
 </style>
 <script>
 // ═══════════ MÓDULO ENFOQUE FREIGHT FORWARDER ═══════════
@@ -479,7 +598,29 @@ var LFF = {
    i3l:["DGD firmada por el expedidor: la clasificación es su responsabilidad","Marcado, etiquetado y placas del contenedor antes del ingreso a puerto","VGM declarado dentro del plazo del terminal (SOLAS)","Coherencia total entre DGD, FDS, packing list y B/L"],
    i4l:["FDS desactualizada o que no coincide con el PSN declarado","Segregación incompatible entre productos en un mismo contenedor","Rechazo del terminal por etiquetado incompleto","Reserva pedida sin margen para la aprobación de la naviera"],
    note:"<strong>Alcance del módulo.</strong> Los puntos de transferencia de riesgo y costo corresponden a las reglas Incoterms® 2020 de la Cámara de Comercio Internacional; ante cualquier discrepancia prevalece el texto oficial de la ICC y lo pactado en el contrato de compraventa. Las secciones «¿Qué debemos hacer como Freight Forwarder?» recogen práctica operativa interna y no constituyen asesoría legal ni aduanera. Los requisitos de mercancías peligrosas se rigen por el Código IMDG © OMI en su edición vigente; la clasificación, el nombre de expedición y la declaración corresponden al expedidor. Los diagramas de raíl son esquemas referenciales: el punto exacto es el descrito en texto en cada ficha.",
-   xfer:"Riesgo pasa al comprador", langnote:""},
+   xfer:"Riesgo pasa al comprador", langnote:"",
+   stage:"Etapa", xR:"Traspaso de riesgo", xC:"Vendedor paga hasta", xA:"Riesgo alternativo",
+   gapL:"Comprador con riesgo, vendedor aún paga", altShort:"o, según lugar,",
+   splitT:"Riesgo y costo se separan.", splitA:"El riesgo pasa al comprador en", splitB:"pero el vendedor sigue pagando hasta",
+   link:"Enlace", linkT:"Copiar enlace directo a esta ficha", copied:"Enlace copiado:",
+   none:"Ningún Incoterm coincide con la búsqueda.", of:"de",
+   jOv:"📊 Vista general", jCmp:"⚖ Comparador", jCards:"🗂 Fichas", jMat:"▦ Matriz", jImo:"⚠ IMO",
+   ovT:"Los 11 de un vistazo",
+   ovS:"Dónde pasa el riesgo (barra superior) y hasta dónde paga el vendedor (barra inferior) en cada regla. Toca un código o una fila para abrir su ficha.",
+   ovCap:"De arriba hacia abajo, la responsabilidad del vendedor crece de EXW a DDP. La franja rayada marca el tramo en que el comprador ya asume el riesgo pero el vendedor todavía paga (CPT, CIP, CFR y CIF): es el tramo donde más conviene confirmar quién contrata el seguro.",
+   cmpT:"Comparador A vs B",
+   cmpS:"Elige dos reglas y mira qué cambia. Las filas marcadas con ≠ son las diferencias.",
+   aMode:"Modo de transporte", aNom:"Quién nos nomina", aRisk:"El riesgo pasa cuando…", aRiskSt:"Etapa de traspaso de riesgo",
+   aCost:"El vendedor paga hasta", aIns:"Seguro", aExp:"Despacho de exportación", aImp:"Despacho de importación",
+   aUnl:"Descarga en destino", aScope:"Alcance típico Martiline",
+   insA:"Obligatorio para el vendedor: cobertura amplia (ICC A), mínimo 110 % del valor del contrato",
+   insC:"Obligatorio para el vendedor: cobertura mínima (ICC C), mínimo 110 % del valor del contrato",
+   insNo:"No obligatorio: lo decide quien asume el riesgo",
+   unlCarr:"Comprador, salvo que el contrato de transporte del vendedor la incluya",
+   swap:"Intercambiar A y B",
+   cmpNote:"Comparación orientativa basada en las reglas Incoterms® 2020. Prevalecen el texto oficial de la ICC y lo pactado en el contrato de compraventa.",
+   cardsT:"Fichas por Incoterm", cardsS:"Cada ficha muestra el punto exacto de traspaso y qué nos corresponde hacer como Freight Forwarder. Usa 🔗 para enviar una ficha a un cliente.",
+   hint:"Desliza la tabla hacia el lado →"},
  en:{tab:"⚓ Forwarder View", eyebrow:"Operating premise",
    h2a:"We do not set the Incoterm. ", h2b:"We interpret it.",
    lead:"The Incoterm is agreed between seller and buyer in the sales contract. Our work starts after that: reading the rule to know what to quote, what to coordinate at origin and destination, which documents to demand, which costs to validate and what to warn the customer about before booking. Each card gives the exact point where risk changes hands — not a percentage — and what we have to do.",
@@ -506,7 +647,29 @@ var LFF = {
    i4l:["Outdated SDS or one that does not match the declared PSN","Incompatible segregation between products in one container","Terminal rejection for incomplete labelling","Booking requested without margin for carrier approval"],
    note:"<strong>Scope of this module.</strong> Risk and cost transfer points follow the Incoterms® 2020 rules of the International Chamber of Commerce; in case of any discrepancy the official ICC text and the sales contract prevail. The «What do we do as Freight Forwarder?» sections reflect internal operating practice and are not legal or customs advice. Dangerous goods requirements are governed by the IMDG Code © IMO in its edition in force; classification, proper shipping name and declaration belong to the shipper. Rail diagrams are referential: the exact point is the one described in the text of each card.",
    xfer:"Risk passes to buyer",
-   langnote:"<strong>Note.</strong> The forwarder guidance below is kept in Spanish, the working language of the Chile and Peru operations desks."}
+   langnote:"<strong>Note.</strong> The forwarder guidance below is kept in Spanish, the working language of the Chile and Peru operations desks.",
+   stage:"Stage", xR:"Risk transfer", xC:"Seller pays up to", xA:"Alternative risk point",
+   gapL:"Buyer bears risk, seller still pays", altShort:"or, depending on place,",
+   splitT:"Risk and cost split.", splitA:"Risk passes to the buyer at", splitB:"but the seller keeps paying up to",
+   link:"Link", linkT:"Copy a direct link to this card", copied:"Link copied:",
+   none:"No Incoterm matches the search.", of:"of",
+   jOv:"📊 Overview", jCmp:"⚖ Compare", jCards:"🗂 Cards", jMat:"▦ Matrix", jImo:"⚠ IMO",
+   ovT:"All 11 at a glance",
+   ovS:"Where risk passes (top bar) and how far the seller pays (bottom bar) under each rule. Tap a code or a row to open its card.",
+   ovCap:"From top to bottom, the seller's responsibility grows from EXW to DDP. The striped band marks where the buyer already bears the risk while the seller still pays (CPT, CIP, CFR and CIF): the stretch where it matters most to confirm who buys the insurance.",
+   cmpT:"Compare A vs B",
+   cmpS:"Pick two rules and see what changes. Rows marked ≠ are the differences.",
+   aMode:"Transport mode", aNom:"Who nominates us", aRisk:"Risk passes when…", aRiskSt:"Risk transfer stage",
+   aCost:"Seller pays up to", aIns:"Insurance", aExp:"Export clearance", aImp:"Import clearance",
+   aUnl:"Unloading at destination", aScope:"Typical Martiline scope",
+   insA:"Mandatory for the seller: extensive cover (ICC A), at least 110% of the contract value",
+   insC:"Mandatory for the seller: minimum cover (ICC C), at least 110% of the contract value",
+   insNo:"Not mandatory: decided by whoever bears the risk",
+   unlCarr:"Buyer, unless the seller's contract of carriage includes it",
+   swap:"Swap A and B",
+   cmpNote:"Indicative comparison based on the Incoterms® 2020 rules. The official ICC text and the sales contract prevail.",
+   cardsT:"Cards by Incoterm", cardsS:"Each card shows the exact transfer point and what we must do as Freight Forwarder. Use 🔗 to send a single card to a customer.",
+   hint:"Swipe the table sideways →"}
 };
 
 function T2(){ return LFF[(typeof lang!=="undefined" && LFF[lang]) ? lang : "es"]; }
@@ -524,12 +687,16 @@ panel.innerHTML =
    '<div class="ff-eyebrow" id="ff-eyebrow"></div>'+
    '<h2 id="ff-h2"></h2><p id="ff-lead"></p><div id="ff-langnote" style="margin-top:10px;font-size:11px;color:var(--muted)"></div>'+
  '</div>'+
- '<div class="search-row"><input class="search-input" type="text" id="ff-q" placeholder="🔍"></div>'+
+ '<div class="ff-jump" id="ff-jump"></div>'+
+ '<div class="ff-sec" id="sec-ov"><h3 id="ff-ovT"></h3><p class="sub" id="ff-ovS"></p><div class="ov" id="ff-ov"></div></div>'+
+ '<div class="ff-sec" id="sec-cmp"><h3 id="ff-cmpT"></h3><p class="sub" id="ff-cmpS"></p><div class="cmp" id="ff-cmp"></div></div>'+
+ '<div class="ff-sec" id="sec-cards"><h3 id="ff-cardsT"></h3><p class="sub" id="ff-cardsS"></p>'+
+ '<div class="search-row"><input class="search-input" type="search" id="ff-q" placeholder="🔍" autocomplete="off"><span class="ff-count" id="ff-count" aria-live="polite"></span></div>'+
  '<div class="ff-toolbar" id="ff-filters"></div>'+
- '<div id="ff-list"></div>'+
- '<div class="ff-sec"><h3 id="ff-matT"></h3><p class="sub" id="ff-matS"></p>'+
+ '<div id="ff-list"></div></div>'+
+ '<div class="ff-sec" id="sec-mat"><h3 id="ff-matT"></h3><p class="sub" id="ff-matS"></p><p class="ff-hint" id="ff-hint"></p>'+
    '<div class="ff-matwrap"><table class="ff-mat"><thead id="ff-matHead"></thead><tbody id="ff-matBody"></tbody></table></div></div>'+
- '<div class="ff-sec"><div class="ff-imo">'+
+ '<div class="ff-sec" id="sec-imo"><div class="ff-imo">'+
    '<h3 id="ff-imoT"></h3><p id="ff-imoP"></p><div class="ff-imogrid" id="ff-imoGrid"></div>'+
  '</div><div class="ff-note" id="ff-note"></div></div>';
 document.querySelector(".main").appendChild(panel);
@@ -539,25 +706,140 @@ if(typeof tabIds!=="undefined" && tabIds.indexOf("ff")<0) tabIds.push("ff");
 var stF = {q:"", f:"all"};
 
 /* ── raíl doble riesgo/costo ── */
+var STG = STAGES.map(function(s){ return s.replace(/<br>/g," "); });
+
+/* clase de la barra de riesgo: verde (vendedor), azul (comprador) o rayada (comprador con riesgo mientras el vendedor aún paga) */
+function riskCls(d,i){ return i<=d.riskIdx ? "s" : (i<=d.costIdx ? "b gap" : "b"); }
+
+function splitNote(d){
+  var t = T2();
+  if(d.costIdx<=d.riskIdx) return "";
+  return '<div class="ff-split">⚠ <b>'+t.splitT+'</b> '+t.splitA+' «'+STG[d.riskIdx]+'», '+t.splitB+' «'+STG[d.costIdx]+'».</div>';
+}
+
+/* ── raíl doble riesgo/costo: horizontal (escritorio) y vertical (móvil) ── */
 function rail(d){
   var t = T2(), head="", r="", c="";
   for(var i=0;i<STAGES.length;i++){
-    head += '<th>'+STAGES[i]+'</th>';
-    r += '<td><div class="ff-seg '+(i<=d.riskIdx?"s":"b")+'"></div>'+
-         (i===d.riskIdx?'<span class="ff-pin" data-t="'+t.rRisk.toUpperCase()+'"></span>':'')+
-         (d.altIdx===i?'<span class="ff-pin alt" data-t="ALT."></span>':'')+'</td>';
+    var cls = (i===d.riskIdx?" hr":"")+(i===d.costIdx?" hc":"")+(d.altIdx===i?" ha":"");
+    head += '<th class="'+cls.trim()+'">'+STAGES[i]+'</th>';
+    r += '<td><div class="ff-seg '+riskCls(d,i)+'"></div>'+
+         (i===d.riskIdx?'<span class="ff-pin r" title="'+t.rRisk+'"></span>':'')+
+         (d.altIdx===i?'<span class="ff-pin alt" title="'+t.alt+'"></span>':'')+'</td>';
     c += '<td><div class="ff-seg '+(i<=d.costIdx?"s":"b")+'"></div>'+
-         (i===d.costIdx?'<span class="ff-pin" data-t="'+t.rCost.toUpperCase()+'"></span>':'')+'</td>';
+         (i===d.costIdx?'<span class="ff-pin c" title="'+t.rCost+'"></span>':'')+'</td>';
   }
+  var v = '<div class="ff-vrail"><div class="vr-head"><span>'+t.rRisk+'</span><span>'+t.rCost+'</span><span>'+t.stage+'</span></div>';
+  for(var j=0;j<STG.length;j++){
+    var isR=j===d.riskIdx, isC=j===d.costIdx, isA=d.altIdx===j;
+    v += '<div class="vr-row'+(isR||isC||isA?" tr":"")+'">'+
+      '<div class="vr-cell"><div class="vr-bar '+riskCls(d,j)+'"></div>'+(isR?'<span class="vr-dot r"></span>':(isA?'<span class="vr-dot a"></span>':''))+'</div>'+
+      '<div class="vr-cell"><div class="vr-bar '+(j<=d.costIdx?"s":"b")+'"></div>'+(isC?'<span class="vr-dot c"></span>':'')+'</div>'+
+      '<div class="vr-name"><span class="vr-n">'+(j+1)+'</span><span class="vr-t">'+STG[j]+
+        (isR?' <span class="vr-chip r">'+t.xR+'</span>':'')+
+        (isC?' <span class="vr-chip c">'+t.xC+'</span>':'')+
+        (isA?' <span class="vr-chip a">'+t.xA+'</span>':'')+'</span></div>'+
+    '</div>';
+  }
+  v += '</div>';
   return '<div class="ff-railbox"><div class="ff-legend">'+
     '<span><i style="background:var(--green)"></i>'+t.seller+'</span>'+
     '<span><i style="background:var(--blue)"></i>'+t.buyer+'</span>'+
-    '<span><i style="background:var(--orange)"></i>'+t.pin+'</span>'+
-    (d.altIdx!==undefined?'<span><i style="background:var(--yellow)"></i>'+t.alt+'</span>':'')+
+    '<span><i style="background:var(--red)"></i>'+t.xR+'</span>'+
+    '<span><i style="background:var(--yellow)"></i>'+t.xC+'</span>'+
+    (d.altIdx!==undefined?'<span><i style="background:var(--card);border:2px dashed var(--red);width:10px;height:10px"></i>'+t.alt+'</span>':'')+
+    (d.costIdx>d.riskIdx?'<span><i style="background:repeating-linear-gradient(135deg,var(--blue) 0 3px,rgba(52,152,219,.25) 3px 6px);border-radius:2px;width:14px"></i>'+t.gapL+'</span>':'')+
     '</div><div class="ff-rail"><table><thead><tr>'+head+'</tr></thead><tbody>'+
     '<tr>'+r+'</tr><tr><td colspan="12" class="ff-lbl">'+t.rRisk+'</td></tr>'+
     '<tr>'+c+'</tr><tr><td colspan="12" class="ff-lbl">'+t.rCost+'</td></tr>'+
-    '</tbody></table></div></div>';
+    '</tbody></table></div>'+v+splitNote(d)+'</div>';
+}
+
+/* ── filas de la vista general (también usadas por el comparador) ── */
+function ovRows(list){
+  var h = '<div class="ov-grid"><div class="ov-h"></div>';
+  for(var i=0;i<STG.length;i++) h += '<div class="ov-h"><span class="t">'+STAGES[i]+'</span><span class="n">'+(i+1)+'</span></div>';
+  list.forEach(function(d,k){
+    if(k) h += '<div class="ov-sep"></div>';
+    h += '<button class="ov-code" type="button" data-go="'+d.code+'" style="color:'+(ACC[d.code]||"var(--orange)")+'">'+d.code+'</button>';
+    for(var i=0;i<STG.length;i++){
+      h += '<div class="ov-cell" data-go="'+d.code+'" title="'+d.code+' · '+STG[i]+'">'+
+        '<div class="ov-b r '+riskCls(d,i)+'"></div><div class="ov-b c '+(i<=d.costIdx?"s":"b")+'"></div>'+
+        (i===d.riskIdx?'<span class="ov-dot r"></span>':'')+
+        (d.altIdx===i?'<span class="ov-dot a"></span>':'')+
+        (i===d.costIdx?'<span class="ov-dot c"></span>':'')+'</div>';
+    }
+  });
+  return h+'</div>';
+}
+function ovKey(){ return '<ol class="ov-key">'+STG.map(function(s){return '<li>'+s+'</li>';}).join("")+'</ol>'; }
+
+/* ── comparador A vs B ── */
+var cmpA = "FOB", cmpB = "FCA";
+function byCode(c){ return DATA.filter(function(d){return d.code===c;})[0]; }
+function attrs(d){
+  var t = T2(), carrierSeller = ["CPT","CIP","CFR","CIF","DAP","DDP"].indexOf(d.code)>=0;
+  return [
+    [t.aMode, d.fam==="sea"?t.sea:t.any],
+    [t.aNom, d.nom==="c"?t.nomc:t.nomv],
+    [t.aRisk, d.mrisk],
+    [t.aRiskSt, (d.riskIdx+1)+'. '+STG[d.riskIdx]+(d.altIdx!==undefined?' · '+t.altShort+' '+(d.altIdx+1)+'. '+STG[d.altIdx]:'')],
+    [t.aCost, (d.costIdx+1)+'. '+STG[d.costIdx]],
+    [t.aIns, d.code==="CIP"?t.insA:(d.code==="CIF"?t.insC:t.insNo)],
+    [t.aExp, d.code==="EXW"?t.buyer:t.seller],
+    [t.aImp, d.code==="DDP"?t.seller:t.buyer],
+    [t.aUnl, d.code==="DPU"?t.seller:(carrierSeller?t.unlCarr:t.buyer)],
+    [t.aScope, d.scope]
+  ];
+}
+function renderCmp(){
+  var t = T2(), A = byCode(cmpA), B = byCode(cmpB);
+  var opts = function(sel){ return DATA.map(function(d){ return '<option value="'+d.code+'"'+(d.code===sel?" selected":"")+'>'+d.code+' — '+(lang==="en"?d.en:d.es)+'</option>'; }).join(""); };
+  var pre = [["FOB","FCA"],["CIF","CIP"],["CPT","CFR"],["DAP","DPU"],["DAP","DDP"],["EXW","FCA"]];
+  var aa = attrs(A), bb = attrs(B), rows = "";
+  for(var i=0;i<aa.length;i++){
+    var diff = aa[i][1]!==bb[i][1];
+    rows += '<div class="cmp-row'+(diff?" diff":"")+'"><div class="cmp-k">'+aa[i][0]+'</div><div>'+aa[i][1]+'</div><div>'+bb[i][1]+'</div></div>';
+  }
+  document.getElementById("ff-cmp").innerHTML =
+    '<div class="cmp-sel"><select id="cmp-a" aria-label="Incoterm A">'+opts(cmpA)+'</select>'+
+    '<button class="cmp-swap" type="button" id="cmp-swap" title="'+t.swap+'" aria-label="'+t.swap+'">⇄</button>'+
+    '<select id="cmp-b" aria-label="Incoterm B">'+opts(cmpB)+'</select></div>'+
+    '<div class="cmp-pre">'+pre.map(function(p){
+      var on = (p[0]===cmpA&&p[1]===cmpB);
+      return '<button class="ff-chip'+(on?" on":"")+'" type="button" data-a="'+p[0]+'" data-b="'+p[1]+'">'+p[0]+' vs '+p[1]+'</button>';
+    }).join("")+'</div>'+
+    ovRows([A,B])+
+    '<div class="cmp-rows"><div class="cmp-row hd"><div class="cmp-k"></div><div style="color:'+ACC[A.code]+'">'+A.code+'</div><div style="color:'+ACC[B.code]+'">'+B.code+'</div></div>'+rows+'</div>'+
+    splitNote(A)+(B.code!==A.code?splitNote(B):"")+
+    '<p class="cmp-note">'+t.cmpNote+'</p>';
+}
+
+/* ── ir a una ficha (desde vista general, comparador o enlace #CODIGO) ── */
+function goTo(code, fromHash){
+  if(!byCode(code)) return;
+  var el = document.getElementById("inc-"+code);
+  if(!el){ stF.f="all"; stF.q=""; document.getElementById("ff-q").value=""; paintChips(); renderFF(); el=document.getElementById("inc-"+code); }
+  if(!el) return;
+  el.classList.add("open");
+  el.scrollIntoView({behavior: fromHash ? "auto" : "smooth", block:"start"});
+  el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+  if(!fromHash && history.replaceState) history.replaceState(null,"","#"+code);
+}
+function toast(msg){
+  var e = document.getElementById("ff-toast");
+  if(!e){ e=document.createElement("div"); e.id="ff-toast"; e.className="ff-toast"; e.setAttribute("role","status"); document.body.appendChild(e); }
+  e.textContent = msg; e.classList.add("on"); clearTimeout(e._t); e._t = setTimeout(function(){ e.classList.remove("on"); }, 1800);
+}
+function copyLink(code){
+  var url = location.origin+location.pathname+"#"+code, t = T2();
+  var done = function(){ toast(t.copied+" "+code); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, function(){ fallbackCopy(url); done(); }); }
+  else { fallbackCopy(url); done(); }
+}
+function fallbackCopy(txt){
+  var a=document.createElement("textarea"); a.value=txt; a.setAttribute("readonly",""); a.style.position="fixed"; a.style.opacity="0";
+  document.body.appendChild(a); a.select(); try{ document.execCommand("copy"); }catch(e){} document.body.removeChild(a);
 }
 
 function li(a){ var s=""; for(var i=0;i<a.length;i++) s+='<li>'+a[i]+'</li>'; return s; }
@@ -566,13 +848,14 @@ function card(d){
   var t = T2(), f = d.ff;
   var accent = (typeof inco!=="undefined" && inco.filter(function(x){return x.code===d.code;})[0]) ?
                inco.filter(function(x){return x.code===d.code;})[0].accent : "var(--orange)";
-  return '<div class="ff-card" data-code="'+d.code+'" data-fam="'+d.fam+'" data-nom="'+d.nom+'" style="border-left-color:'+accent+'">'+
+  return '<div class="ff-card" id="inc-'+d.code+'" data-code="'+d.code+'" data-fam="'+d.fam+'" data-nom="'+d.nom+'" style="border-left-color:'+accent+'">'+
    '<div class="ff-head">'+
      '<div class="ff-code" style="color:'+accent+'">'+d.code+'</div>'+
      '<div class="ff-names"><h3>'+d.es+'</h3><span>'+d.en+'</span></div>'+
      '<div class="ff-tags">'+
        '<span class="ff-tag '+(d.fam==="sea"?"sea":"any")+'">'+(d.fam==="sea"?t.sea:t.any)+'</span>'+
        '<span class="ff-tag nom">'+(d.nom==="c"?t.nomc:t.nomv)+'</span>'+
+       '<button class="ff-link" type="button" data-link="'+d.code+'" title="'+t.linkT+'">🔗 '+t.link+'</button>'+
      '</div>'+
    '</div>'+
    '<div class="ff-points">'+
@@ -608,8 +891,36 @@ function renderFF(){
     }
     return true;
   });
-  document.getElementById("ff-list").innerHTML = out.length ? out.map(card).join("")
-    : '<div class="imo-empty" style="text-align:center;padding:34px;color:var(--muted);font-size:12px;background:var(--card);border:1px solid var(--border);border-radius:10px">—</div>';
+  var list = document.getElementById("ff-list"), t = T2();
+  list.innerHTML = out.length ? out.map(card).join("")
+    : '<div class="imo-empty" style="text-align:center;padding:34px;color:var(--muted);font-size:13px;background:var(--card);border:1px solid var(--border);border-radius:10px">'+t.none+'</div>';
+  var filtered = q || stF.f!=="all";
+  document.getElementById("ff-count").textContent = filtered ? out.length+" "+t.of+" "+DATA.length : "";
+  if(q) highlight(list, stF.q.trim());
+}
+
+/* resalta coincidencias sin importar tildes, y abre la sección FF de las fichas donde aparece */
+function highlight(root, q){
+  var map = {a:"aáàäâ",e:"eéèëê",i:"iíìïî",o:"oóòöô",u:"uúùüû",n:"nñ",c:"cç"};
+  var src = strip(q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/[aeiounc]/g,function(ch){ return "["+map[ch]+map[ch].toUpperCase()+"]"; });
+  if(!src) return;
+  var re = new RegExp(src,"gi"), nodes = [], w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+  while(w.nextNode()){ var n=w.currentNode; if(n.parentNode.closest(".ff-code,.ff-link,.ff-pin,button.ff-toggle")) continue; if(re.test(n.nodeValue)) nodes.push(n); re.lastIndex=0; }
+  nodes.forEach(function(n){
+    var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+    re.lastIndex=0;
+    while((m=re.exec(s))){ frag.appendChild(document.createTextNode(s.slice(last,m.index))); var mk=document.createElement("mark"); mk.className="ffm"; mk.textContent=m[0]; frag.appendChild(mk); last=m.index+m[0].length; if(!m[0].length) break; }
+    frag.appendChild(document.createTextNode(s.slice(last))); n.parentNode.replaceChild(frag,n);
+  });
+  root.querySelectorAll(".ff-card").forEach(function(c){ if(c.querySelector(".ff-body mark")) c.classList.add("open"); });
+}
+
+function paintChips(){
+  var t = T2();
+  var fl = [["all",t.all],["any",t.any],["sea",t.sea],["nom-c",t.nomc],["nom-v",t.nomv]];
+  document.getElementById("ff-filters").innerHTML = fl.map(function(x){
+    return '<button class="ff-chip'+(stF.f===x[0]?" on":"")+'" type="button" data-f="'+x[0]+'">'+x[1]+'</button>';
+  }).join("");
 }
 
 function paintFF(){
@@ -622,10 +933,24 @@ function paintFF(){
   document.getElementById("ff-q").placeholder = "🔍  "+(lang==="en"
     ? "Search: unloading, customs, insurance, demurrage…"
     : "Buscar: descarga, aduana, seguro, sobrestadía…");
-  var fl = [["all",t.all],["any",t.any],["sea",t.sea],["nom-c",t.nomc],["nom-v",t.nomv]];
-  document.getElementById("ff-filters").innerHTML = fl.map(function(x){
-    return '<button class="ff-chip'+(stF.f===x[0]?" on":"")+'" type="button" data-f="'+x[0]+'">'+x[1]+'</button>';
+  paintChips();
+  document.getElementById("ff-jump").innerHTML = [["sec-ov",t.jOv],["sec-cmp",t.jCmp],["sec-cards",t.jCards],["sec-mat",t.jMat],["sec-imo",t.jImo]].map(function(x){
+    return '<button class="ff-chip" type="button" data-jump="'+x[0]+'">'+x[1]+'</button>';
   }).join("");
+  document.getElementById("ff-ovT").textContent = t.ovT;
+  document.getElementById("ff-ovS").textContent = t.ovS;
+  document.getElementById("ff-ov").innerHTML = ovRows(DATA)+ovKey()+
+    '<div class="ff-legend" style="margin-top:12px">'+
+      '<span><i style="background:var(--green)"></i>'+t.seller+'</span><span><i style="background:var(--blue)"></i>'+t.buyer+'</span>'+
+      '<span><i style="background:var(--red)"></i>'+t.xR+'</span><span><i style="background:var(--yellow)"></i>'+t.xC+'</span>'+
+      '<span><i style="background:repeating-linear-gradient(135deg,var(--blue) 0 3px,rgba(52,152,219,.25) 3px 6px);border-radius:2px;width:14px"></i>'+t.gapL+'</span>'+
+    '</div><p class="ov-cap">'+t.ovCap+'</p>';
+  document.getElementById("ff-cmpT").textContent = t.cmpT;
+  document.getElementById("ff-cmpS").textContent = t.cmpS;
+  renderCmp();
+  document.getElementById("ff-cardsT").textContent = t.cardsT;
+  document.getElementById("ff-cardsS").textContent = t.cardsS;
+  document.getElementById("ff-hint").textContent = t.hint;
   document.getElementById("ff-matT").textContent = t.matT;
   document.getElementById("ff-matS").textContent = t.matS;
   document.getElementById("ff-matHead").innerHTML =
@@ -657,35 +982,48 @@ document.getElementById("ff-filters").addEventListener("click", function(e){
   renderFF();
 });
 document.getElementById("ff-list").addEventListener("click", function(e){
+  var l = e.target.closest(".ff-link"); if(l){ copyLink(l.dataset.link); return; }
   var b = e.target.closest(".ff-toggle"); if(!b) return;
   b.parentNode.classList.toggle("open");
 });
-
-/* ── punto exacto en lugar del porcentaje, en el Explorer ── */
-DATA.forEach(function(d){
-  var it = (typeof inco!=="undefined") ? inco.filter(function(x){return x.code===d.code;})[0] : null;
-  if(it){ it.xfer = d.mrisk; it.transfer.es = d.mrisk; }
+document.getElementById("ff-ov").addEventListener("click", function(e){
+  var g = e.target.closest("[data-go]"); if(g) goTo(g.dataset.go);
 });
-if(typeof renderCards==="function"){
-  renderCards = function(){
-    var t = T[lang], grid = document.getElementById("cards-grid"), fl = getFiltered();
-    if(!fl.length){ grid.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px;">No results.</div>'; return; }
-    grid.innerHTML = fl.map(function(d){
-      return '<div class="inc-card" onclick="showDetail(\''+d.code+'\')" id="card-'+d.code+'" style="--accent:'+d.accent+'">'+
-        '<div class="inc-code" style="color:'+d.accent+'">'+d.code+'</div>'+
-        '<div class="inc-en">'+d.en+'</div><div class="inc-es">'+d.es+'</div>'+
-        '<div class="inc-mode-tag '+(d.mode==="any"?"tag-any":"tag-sea")+'">'+(d.mode==="any"?t.modeAny:t.modeSea)+'</div>'+
-        '<div class="ff-xfer"><div><b>'+T2().xfer+'</b>'+(d.transfer[lang]||d.transfer.es)+'</div></div>'+
-      '</div>';
-    }).join("");
-  };
-  renderCards();
-}
+document.getElementById("ff-jump").addEventListener("click", function(e){
+  var j = e.target.closest("[data-jump]"); if(!j) return;
+  var s = document.getElementById(j.dataset.jump); if(s) s.scrollIntoView({behavior:"smooth",block:"start"});
+});
+var cmpBox = document.getElementById("ff-cmp");
+cmpBox.addEventListener("change", function(e){
+  if(e.target.id==="cmp-a") cmpA = e.target.value;
+  if(e.target.id==="cmp-b") cmpB = e.target.value;
+  renderCmp();
+});
+cmpBox.addEventListener("click", function(e){
+  if(e.target.closest("#cmp-swap")){ var x=cmpA; cmpA=cmpB; cmpB=x; renderCmp(); return; }
+  var p = e.target.closest("[data-a]"); if(p){ cmpA=p.dataset.a; cmpB=p.dataset.b; renderCmp(); return; }
+  var g = e.target.closest("[data-go]"); if(g) goTo(g.dataset.go);
+});
 
 /* ── enganche con el cambio de idioma ── */
 var _prev = applyLang;
 applyLang = function(){ _prev(); paintFF(); };
 paintFF();
+
+/* ── enlace directo: …/martiline-incoterms/#FOB ── */
+function fromHash(){ var c = decodeURIComponent((location.hash||"").slice(1)).toUpperCase(); if(byCode(c)) goTo(c, true); }
+window.addEventListener("hashchange", fromHash);
+if(location.hash) setTimeout(fromHash, 60);
+})();
+
+/* ── tema: respeta la preferencia del sistema y recuerda la elección ── */
+(function(){
+  var K = "mtl-incoterms-theme", saved = null;
+  try{ saved = localStorage.getItem(K); }catch(e){}
+  var wantLight = saved ? saved==="light" : !!(window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches);
+  if(wantLight && isDark) toggleTheme();
+  var _t = toggleTheme;
+  toggleTheme = function(){ _t(); try{ localStorage.setItem(K, isDark ? "dark" : "light"); }catch(e){} };
 })();
 </script>
 
